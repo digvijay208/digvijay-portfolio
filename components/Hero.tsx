@@ -121,7 +121,9 @@ export default function Hero() {
 
               {/* Line 2: Animated WAGHAMODE badge + aka */}
               <div className="flex items-center gap-4 sm:gap-6 mb-3 sm:mb-4">
-                <span className="text-4xl sm:text-6xl xl:text-7xl bg-gray-900 dark:bg-gray-800 px-4 sm:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl border border-white/5 relative inline-block group">
+                <span className="waghamode-scanner text-4xl sm:text-6xl xl:text-7xl bg-gray-900 dark:bg-gray-800 px-4 sm:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl border border-white/5 relative inline-block group">
+                  {/* Scanner bar — overflow:hidden lives here, NOT on the parent, so bg-clip-text text is never clipped */}
+                  <span className="scanner-bar" aria-hidden="true" />
                   <div className="absolute inset-0 bg-primary-500/10 blur-xl rounded-xl sm:rounded-2xl group-hover:bg-primary-500/20 transition-colors duration-500" />
                   <span className="relative z-10 bg-[linear-gradient(110deg,#ffffff,45%,#a78bfa,55%,#ffffff)] dark:bg-[linear-gradient(110deg,#a78bfa,45%,#ffffff,55%,#a78bfa)] bg-[length:200%_100%] bg-clip-text text-transparent animate-text-shimmer">
                     WAGHAMODE
@@ -191,15 +193,13 @@ export default function Hero() {
               {/* Purple Backdrop Blob */}
               <div className="absolute inset-0 bg-[#7c3aed] dark:bg-[#6d28d9] rounded-[40%_60%_70%_30%/50%_60%_30%_50%] opacity-90 animate-blob" />
 
-              {/* Avatar Image */}
-              <div className="absolute inset-0 flex items-center justify-center pt-10">
-                <div className="relative w-[90%] h-[90%]">
-                  <img
-                    src="/avatar_digvijay.jpg"
-                    alt="Digvijay Waghamode Avatar"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+              {/* Avatar Image — clipped to the same blob shape, synced animation */}
+              <div className="absolute inset-0 rounded-[40%_60%_70%_30%/50%_60%_30%_50%] overflow-hidden animate-blob">
+                <img
+                  src="/avatar_digvijay.jpg"
+                  alt="Digvijay Waghamode Avatar"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
 
               {/* Floating Stat Cards */}

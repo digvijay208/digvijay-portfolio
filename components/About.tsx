@@ -180,21 +180,34 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="lg:w-72 shrink-0 flex items-center justify-center py-10 px-8 lg:border-r border-b lg:border-b-0 border-[var(--border)] bg-[var(--bg-card)]"
             >
-              {/* Dark oval / circle container — like the reference */}
-              <div
-                className="relative rounded-full overflow-hidden"
-                style={{
-                  width: "220px",
-                  height: "260px",
-                  background: "radial-gradient(ellipse at center, #1e1b4b 0%, #0a0a14 100%)",
-                  boxShadow: "0 0 40px rgba(124,58,237,0.25)",
-                }}
-              >
-                <img
-                  src="/avatar_digvijay.jpg"
-                  alt="Digvijay Waghamode"
-                  className="w-full h-full object-cover object-top"
+              {/* Pulse glow wrapper */}
+              <div className="relative flex items-center justify-center">
+                {/* Pulsing glow ring behind the avatar */}
+                <div
+                  className="absolute animate-pulse-slow rounded-full"
+                  style={{
+                    width: "240px",
+                    height: "280px",
+                    background: "radial-gradient(ellipse at center, rgba(124,58,237,0.35) 0%, transparent 70%)",
+                    filter: "blur(12px)",
+                  }}
                 />
+                {/* Dark oval / circle container */}
+                <div
+                  className="relative rounded-full overflow-hidden"
+                  style={{
+                    width: "220px",
+                    height: "260px",
+                    background: "radial-gradient(ellipse at center, #1e1b4b 0%, #0a0a14 100%)",
+                    boxShadow: "0 0 40px rgba(124,58,237,0.25)",
+                  }}
+                >
+                  <img
+                    src="/avatar_digvijay.jpg"
+                    alt="Digvijay Waghamode"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               </div>
             </motion.div>
 

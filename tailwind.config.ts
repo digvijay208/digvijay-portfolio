@@ -38,7 +38,7 @@ const config: Config = {
         "slide-left": "slideLeft 0.6s ease-out forwards",
         float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 4s ease-in-out infinite",
-        blob: "blob 7s infinite",
+        blob: "blob 12s infinite",
         "text-shimmer": "text-shimmer 2.5s ease-out infinite alternate",
       },
       keyframes: {

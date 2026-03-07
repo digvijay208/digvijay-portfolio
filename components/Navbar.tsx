@@ -59,8 +59,8 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-[var(--bg)]/90 backdrop-blur-md shadow-sm border-b border-[var(--border)]"
-          : "bg-transparent"
+        ? "bg-[var(--bg)]/90 backdrop-blur-md shadow-sm border-b border-[var(--border)]"
+        : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -74,7 +74,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <DWLogo size={38} />
+            <DWLogo size={54} />
           </motion.a>
 
           {/* Right side: nav links + resume + theme toggle */}
@@ -162,8 +162,8 @@ export default function Navbar() {
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
                   className={`text-left text-sm font-medium py-1 transition-colors ${activeSection === link.href.replace("#", "")
-                      ? "text-primary-500 dark:text-primary-400"
-                      : "text-[var(--text-muted)]"
+                    ? "text-primary-500 dark:text-primary-400"
+                    : "text-[var(--text-muted)]"
                     }`}
                 >
                   {link.label}

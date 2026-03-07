@@ -124,3 +124,58 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Terminal scanner animation */
+@keyframes scanner {
+  0%   { left: -40%; }
+  100% { left: 110%; }
+}
+
+.waghamode-scanner {
+  position: relative;
+}
+
+/* Inner element that clips the scanner bar without affecting bg-clip-text */
+.scanner-bar {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.scanner-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(167, 139, 250, 0.08) 20%,
+    rgba(124, 58, 237, 0.18) 50%,
+    rgba(167, 139, 250, 0.08) 80%,
+    transparent 100%
+  );
+  /* Horizontal scanlines layered over the sweep */
+  mask-image: repeating-linear-gradient(
+    to bottom,
+    black 0px,
+    black 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  -webkit-mask-image: repeating-linear-gradient(
+    to bottom,
+    black 0px,
+    black 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scanner 2.8s linear infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
