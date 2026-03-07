@@ -40,8 +40,12 @@ export default function RootLayout({
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
+                  // Default to dark mode unless 'light' is strictly set
+                  if (theme === 'light') {
+                    document.documentElement.classList.remove('dark');
+                  } else {
                     document.documentElement.classList.add('dark');
+                    if (!theme) localStorage.setItem('theme', 'dark');
                   }
                 } catch(e) {}
               })();

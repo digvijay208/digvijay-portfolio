@@ -17,7 +17,7 @@ export default function ContactCTA() {
 
     const formData = new FormData(e.currentTarget);
     // Replace this with your actual Web3Forms access key once registered
-    formData.append("access_key", "f9f44a33-4ca8-433c-ab9a-41d5dc8759fb"); // Added temporary key, user must supply their own or use Web3forms default test key 
+    formData.append("access_key", "36b8d077-1e26-4977-ab71-10a8e9bcfab6"); // Added temporary key, user must supply their own or use Web3forms default test key 
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

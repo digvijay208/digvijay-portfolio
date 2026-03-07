@@ -39,6 +39,7 @@ const config: Config = {
         float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 4s ease-in-out infinite",
         blob: "blob 7s infinite",
+        "text-shimmer": "text-shimmer 2.5s ease-out infinite alternate",
       },
       keyframes: {
         blob: {
@@ -70,6 +71,10 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
+        },
+        "text-shimmer": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "100% 50%" },
         },
       },
     },

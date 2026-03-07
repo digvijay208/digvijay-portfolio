@@ -76,7 +76,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-40 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-72 items-center">
 
           {/* LEFT: Text Content */}
           <motion.div
@@ -113,18 +113,27 @@ export default function Hero() {
               </AnimatePresence>
             </div>
 
-            <h1 
-              className="text-4xl sm:text-6xl xl:text-7xl font-black mb-8 sm:mb-10 leading-[1.3] sm:leading-[80px]"
-            >
-              Hello, I&apos;m <br />
-              <span className="relative inline-block my-2 sm:my-4 break-words max-w-full">
-                <span className="bg-gray-900 dark:bg-gray-800 text-white dark:text-primary-400 px-4 sm:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl mr-2 sm:mr-4 shadow-xl border border-white/5 inline-block mb-2 sm:mb-0">
-                  WAGHAMODE
+            <h1 className="font-black mb-8 sm:mb-10">
+              {/* Line 1 */}
+              <div className="text-4xl sm:text-6xl xl:text-7xl text-[var(--text)] mb-3 sm:mb-4">
+                Hello, I&apos;m
+              </div>
+
+              {/* Line 2: Animated WAGHAMODE badge + aka */}
+              <div className="flex items-center gap-4 sm:gap-6 mb-3 sm:mb-4">
+                <span className="text-4xl sm:text-6xl xl:text-7xl bg-gray-900 dark:bg-gray-800 px-4 sm:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl border border-white/5 relative inline-block group">
+                  <div className="absolute inset-0 bg-primary-500/10 blur-xl rounded-xl sm:rounded-2xl group-hover:bg-primary-500/20 transition-colors duration-500" />
+                  <span className="relative z-10 bg-[linear-gradient(110deg,#ffffff,45%,#a78bfa,55%,#ffffff)] dark:bg-[linear-gradient(110deg,#a78bfa,45%,#ffffff,55%,#a78bfa)] bg-[length:200%_100%] bg-clip-text text-transparent animate-text-shimmer">
+                    WAGHAMODE
+                  </span>
                 </span>
-                <span className="text-[var(--text)] align-middle inline-block">aka</span>
-              </span>
-              <br />
-              <span className="text-[var(--text)] inline-block mt-2 sm:mt-0">Digvijay Waghamode</span>
+                <span className="text-4xl sm:text-6xl xl:text-7xl text-[var(--text)]">aka</span>
+              </div>
+
+              {/* Line 4 */}
+              <div className="text-4xl sm:text-6xl xl:text-7xl text-[var(--text)]">
+                Digvijay Waghamode
+              </div>
             </h1>
 
             <p className="text-[var(--text-muted)] text-base sm:text-lg max-w-xl mb-10 sm:mb-14 leading-relaxed opacity-75">
