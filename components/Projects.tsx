@@ -43,8 +43,8 @@ const PROJECTS: Project[] = [
     title: "Ai-prompt-generator",
     description: "A web application that helps users craft perfect prompts for AI tools like ChatGPT, Claude, and other large language models.",
     tags: [
-      { label: "REACT", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300" },
-      { label: "TAILWIND", color: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300" },
+      { label: "HTML CSS", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300" },
+      { label: "JS", color: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300" },
       { label: "BACKEND", color: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300" },
     ],
     github: "https://github.com/digvijay208/ai-prompt-generator",
@@ -68,9 +68,9 @@ const PROJECTS: Project[] = [
     title: "pokemon-finder",
     description: "Secure cloud-based file management system with real-time sync, file previews, and team collaboration features.",
     tags: [
-      { label: "REACT", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300" },
-      { label: "AWS S3", color: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300" },
-      { label: "CLOUD", color: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300" },
+      { label: "HTML", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300" },
+      { label: "CSS", color: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300" },
+      { label: "JS", color: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300" },
     ],
     github: "https://github.com/digvijay208/pokemon-finder",
     demo: "https://pokemon-finder-glnz.onrender.com/",
