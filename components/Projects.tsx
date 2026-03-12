@@ -26,7 +26,7 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
-  {
+  /* {
     title: "InfraGuard Security Platform",
     description: "An AI-powered security scanning platform that analyzes infrastructure configs for misconfigurations and provides intelligent fixes.",
     tags: [
@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
     demo: "https://example.com",
     gradient: "from-purple-400 via-violet-500 to-indigo-600",
     emoji: "🔐",
-  },
+  }, */
   {
     title: "Ai-prompt-generator",
     description: "A web application that helps users craft perfect prompts for AI tools like ChatGPT, Claude, and other large language models.",
@@ -60,7 +60,7 @@ const PROJECTS: Project[] = [
       { label: "AI", color: "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300" },
       { label: "LANGCHAIN", color: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300" },
     ],
-    github: "https://github.com/",
+    github: "https://github.com/digvijay208/multi_agent_ai",
     gradient: "from-rose-400 via-pink-500 to-purple-600",
     emoji: "🤖",
   },
@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
     gradient: "from-emerald-400 via-teal-500 to-cyan-600",
     emoji: "☁️",
   },
-  {
+  /* {
     title: "DevLink — Developer Portfolio Builder",
     description: "A no-code portfolio builder for developers that generates beautiful, responsive portfolios from GitHub data.",
     tags: [
@@ -88,7 +88,7 @@ const PROJECTS: Project[] = [
     github: "https://github.com/",
     gradient: "from-indigo-400 via-blue-500 to-purple-600",
     emoji: "🔗",
-  },
+  }, */
 ];
 
 export default function Projects() {

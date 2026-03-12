@@ -27,30 +27,30 @@ const INFO_ROWS = [
 
 const EXPERIENCE = [
   {
-    role: "Software Developer Intern",
-    company: "Tech Company Inc.",
-    duration: "Jun 2024 – Aug 2024",
-    desc: "Built and optimized RESTful APIs using Node.js and Express. Improved frontend performance by 30% through code splitting and lazy loading.",
+    role: "Computer Science Engineering Student",
+    company: "3rd Year B.E.",
+    duration: "2023 – Present",
+    desc: "Currently focused on full-stack web development, learning complex algorithms, and building personal projects to apply academic concepts.",
   },
   {
-    role: "Open Source Contributor",
-    company: "Various Projects",
+    role: "Open Source Enthusiast & Learner",
+    company: "Self-driven Projects",
     duration: "2023 – Present",
-    desc: "Contributed to multiple open-source repositories, fixing bugs and adding new features with a focus on developer experience.",
+    desc: "Actively building functional web applications alongside academic studies to gain practical development experience.",
   },
 ];
 
 const EDUCATION = [
-  { degree: "B.E. Computer Science", institution: "Visvesvaraya Technological University", duration: "2023 – 2027", gpa: "6.0 / 10.0" },
-  { degree: "12th Grade (PCMB)",     institution: "KLE independent PU College",             duration: "2020 – 2022", gpa: "71.55%" },
+  { degree: "B.E. Computer Science", institution: "Visvesvaraya Technological University", duration: "2023 – 2027", cgpa: "6.0 / 10.0" },
+  { degree: "12th Grade (PCMB)",     institution: "KLE independent PU College",             duration: "2020 – 2022", cgpa: "7.53 / 10.0" },
 ];
 
-const ACHIEVEMENTS = [
+const ACHIEVEMENTS = [/*
   { title: "🏆 Hackathon Winner",   desc: "1st place at National Level Tech Hackathon 2024 among 200+ teams." },
   { title: "⭐ 5-Star Coder",       desc: "Achieved 5-star rating on HackerRank in Problem Solving." },
   { title: "🎓 Merit Scholarship",  desc: "Awarded academic merit scholarship for outstanding performance." },
   { title: "🚀 Best Project Award", desc: "Recognized for the best final year project in the department." },
-];
+*/];
 
 const SKILL_GROUPS = [
   { category: "Frontend",      color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",     skills: ["React","Next.js","TypeScript","Tailwind CSS","HTML5","CSS3"] },
@@ -114,7 +114,7 @@ const tabContent: Record<string, React.ReactNode> = {
             </div>
             <span className="shrink-0 text-xs px-2 py-1 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300">{edu.duration}</span>
           </div>
-          <div className="mt-2 text-sm text-[var(--text-muted)]">GPA / Score: <strong>{edu.gpa}</strong></div>
+          <div className="mt-2 text-sm text-[var(--text-muted)]">CGPA / Score: <strong>{edu.cgpa}</strong></div>
         </div>
       ))}
     </div>
@@ -203,7 +203,7 @@ export default function About() {
                   }}
                 >
                   <img
-                    src="/avatar_digvijay.jpg"
+                    src="/digvijay.jpg"
                     alt="Digvijay Waghamode"
                     className="w-full h-full object-cover object-top"
                   />

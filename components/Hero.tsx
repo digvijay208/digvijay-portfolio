@@ -26,13 +26,13 @@ const SOCIALS = [
 const floatingStats = [
   {
     id: 1,
-    value: "1",
-    label: "Internships Completed",
-    icon: MdWork,
+    value: "5/5",
+    label: "Finished Projects",
+    icon: MdCode,
     className: "top-[10px] left-[0px]",
     color: "text-purple-600 bg-purple-100"
   },
-  {
+  /* {
     id: 2,
     value: "9+",
     label: "Finished Projects",
@@ -47,7 +47,7 @@ const floatingStats = [
     icon: MdEmojiEvents,
     className: "top-[120px] right-[-10px]",
     color: "text-orange-600 bg-orange-100"
-  },
+  }, */
 ];
 
 const ROLES = [
