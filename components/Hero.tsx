@@ -55,6 +55,7 @@ const ROLES = [
   "BACKEND DEVELOPER",
   "SOFTWARE DEVELOPER",
   "AI / ML DEVELOPER",
+  "DevOps Engineer",
 ];
 
 export default function Hero() {
@@ -155,7 +156,7 @@ export default function Hero() {
                 Contact Me <FiMail />
               </motion.a>
               <motion.a
-                href="/Digvijay_resume.pdf"
+                href="/Digvijay_resume-1.pdf"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
