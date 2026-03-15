@@ -116,7 +116,7 @@ export default function Hero() {
           style={{
             background: useTransform(
               [springX, springY],
-              ([x, y]) => `radial-gradient(circle 800px at ${x}% ${y}%, rgba(6,182,212,0.15) 0%, rgba(59,130,246,0.05) 40%, transparent 70%)`
+              ([x, y]) => `radial-gradient(circle 800px at ${x}% ${y}%, rgba(6,182,212,0.4) 0%, rgba(59,130,246,0.15) 40%, transparent 70%)`
             )
           }}
         />
@@ -129,7 +129,7 @@ export default function Hero() {
         {particles.map((p) => (
           <motion.div
             key={p.id}
-            className="absolute rounded-full bg-cyan-500 dark:bg-cyan-400 shadow-[0_0_8px_2px_rgba(6,182,212,0.3)] dark:shadow-[0_0_10px_2px_rgba(34,211,238,0.4)]"
+            className="absolute rounded-full bg-cyan-600 dark:bg-cyan-400 shadow-[0_0_12px_3px_rgba(6,182,212,0.8)] dark:shadow-[0_0_10px_2px_rgba(34,211,238,0.4)]"
             style={{
               width: p.size,
               height: p.size,
@@ -139,7 +139,7 @@ export default function Hero() {
             animate={{
               y: [0, -30, 0],
               x: [0, 20, 0],
-              opacity: [0.1, 0.8, 0.1]
+              opacity: [0.3, 1, 0.3]
             }}
             transition={{
               duration: p.duration,
