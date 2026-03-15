@@ -45,12 +45,12 @@ const EDUCATION = [
   { degree: "12th Grade (PCMB)",     institution: "KLE independent PU College",             duration: "2020 – 2022", cgpa: "7.53 / 10.0" },
 ];
 
-const ACHIEVEMENTS = [/*
-  { title: "🏆 Hackathon Winner",   desc: "1st place at National Level Tech Hackathon 2024 among 200+ teams." },
-  { title: "⭐ 5-Star Coder",       desc: "Achieved 5-star rating on HackerRank in Problem Solving." },
-  { title: "🎓 Merit Scholarship",  desc: "Awarded academic merit scholarship for outstanding performance." },
-  { title: "🚀 Best Project Award", desc: "Recognized for the best final year project in the department." },
-*/];
+const ACHIEVEMENTS = [
+  { title: "☁️ AWS Academy Graduate - Generative AI Foundations", desc: "Completed foundational training on Generative AI concepts provided by AWS Academy." },
+  { title: "🤖 Claude Code in Action", desc: "Successfully completed the Claude Code in Action course, focusing on practical AI development." },
+  { title: "🎨 UI/UX for Beginners", desc: "Completed a comprehensive course covering user interface and user experience design principles." },
+  { title: "💻 Web Development + DevOps Cohort", desc: "Participated in an intensive cohort focusing on modern web development along with essential DevOps practices." },
+];
 
 const SKILL_GROUPS = [
   { category: "Frontend",      color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",     skills: ["React","Next.js","TypeScript","Tailwind CSS","HTML5","CSS3"] },
@@ -106,26 +106,70 @@ const tabContent: Record<string, React.ReactNode> = {
   education: (
     <div className="space-y-4">
       {EDUCATION.map((edu, i) => (
-        <div key={i} className="p-4 rounded-2xl bg-[var(--bg)] border border-[var(--border)] hover:border-primary-300 dark:hover:border-primary-700 transition-colors">
-          <div className="flex justify-between items-start gap-2">
+        <motion.div 
+          key={i} 
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            delay: i * 0.1,
+          }}
+          whileHover={{ 
+            scale: 1.03, 
+            y: -4,
+            transition: { type: "spring", stiffness: 400, damping: 10 }
+          }}
+          whileTap={{ scale: 0.98 }}
+          className="relative p-5 rounded-2xl bg-[var(--bg)] border border-[var(--border)] hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-[0_8px_30px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_8px_30px_rgba(168,85,247,0.6)] cursor-pointer transition-colors duration-300 group overflow-hidden"
+        >
+          {/* Subtle neon gradient background on hover */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+          <div className="relative z-10 flex justify-between items-start gap-2">
             <div>
-              <div className="font-semibold text-[var(--text)]">{edu.degree}</div>
-              <div className="text-sm text-primary-600 dark:text-primary-400 font-medium">{edu.institution}</div>
+              <div className="font-bold text-[var(--text)] flex items-center gap-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300 text-base">{edu.degree}</div>
+              <div className="text-sm text-primary-600 dark:text-primary-400 font-medium mt-1">{edu.institution}</div>
             </div>
-            <span className="shrink-0 text-xs px-2 py-1 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300">{edu.duration}</span>
+            <span className="shrink-0 text-xs px-2.5 py-1 rounded-full bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 font-medium border border-primary-200 dark:border-primary-800">{edu.duration}</span>
           </div>
-          <div className="mt-2 text-sm text-[var(--text-muted)]">CGPA / Score: <strong>{edu.cgpa}</strong></div>
-        </div>
+          <div className="relative z-10 mt-3 text-sm text-[var(--text-muted)]">CGPA / Score: <strong className="text-[var(--text)]">{edu.cgpa}</strong></div>
+        </motion.div>
       ))}
     </div>
   ),
   achievements: (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {ACHIEVEMENTS.map((ach, i) => (
-        <div key={i} className="p-4 rounded-2xl bg-[var(--bg)] border border-[var(--border)] hover:border-primary-300 dark:hover:border-primary-700 transition-all">
-          <div className="font-semibold text-[var(--text)] mb-1">{ach.title}</div>
-          <p className="text-sm text-[var(--text-muted)]">{ach.desc}</p>
-        </div>
+        <motion.div 
+          key={i}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+            delay: i * 0.1,
+          }}
+          whileHover={{ 
+            scale: 1.03, 
+            y: -4,
+            transition: { type: "spring", stiffness: 400, damping: 10 }
+          }}
+          whileTap={{ scale: 0.98 }}
+          className="relative p-5 rounded-2xl bg-[var(--bg)] border border-[var(--border)] hover:border-primary-400 dark:hover:border-primary-500 hover:shadow-[0_8px_30px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_8px_30px_rgba(168,85,247,0.6)] cursor-pointer transition-colors duration-300 group overflow-hidden"
+        >
+          {/* Subtle neon gradient background on hover */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          
+          <div className="relative z-10">
+            <div className="font-bold text-[var(--text)] text-base mb-1.5 flex items-center gap-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+              {ach.title}
+            </div>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed">{ach.desc}</p>
+          </div>
+        </motion.div>
       ))}
     </div>
   ),
@@ -214,26 +258,31 @@ export default function About() {
             {/* RIGHT — Tabs + Content */}
             <div className="flex-1 flex flex-col min-w-0">
               {/* Tab pills row */}
-              <div className="flex flex-wrap gap-2 px-6 pt-8 pb-0 border-b border-[var(--border)]">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  const active = activeTab === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      id={`tab-${tab.id}`}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 mb-3
-                        ${active
-                          ? "bg-primary-600 text-white shadow-md shadow-primary-500/30"
-                          : "text-[var(--text-muted)] hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20"
-                        }`}
-                    >
-                      <Icon size={14} />
-                      <span>{tab.label}</span>
-                    </button>
-                  );
-                })}
+              <div 
+                className="flex overflow-x-auto px-6 pt-8 pb-0 border-b border-[var(--border)] [&::-webkit-scrollbar]:hidden" 
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                <div className="flex gap-1.5 sm:gap-2 pb-3 mb-[-1px]">
+                  {tabs.map((tab) => {
+                    const Icon = tab.icon;
+                    const active = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveTab(tab.id)}
+                        id={`tab-${tab.id}`}
+                        className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 whitespace-nowrap
+                          ${active
+                            ? "bg-primary-600 text-white shadow-md shadow-primary-500/30"
+                            : "text-[var(--text-muted)] hover:text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20"
+                          }`}
+                      >
+                        <Icon size={14} />
+                        <span>{tab.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Tab content */}

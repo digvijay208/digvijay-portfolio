@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import {
   FiGithub,
@@ -60,23 +60,99 @@ const ROLES = [
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [particles, setParticles] = useState<{id: number, size: number, x: number, y: number, duration: number, delay: number}[]>([]);
+
+  // Mouse tracking physics for interactive background
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth out the mouse movement with physics
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+
+  // Calculate opposite movement for parallax effect on particles
+  const parallaxX = useTransform(springX, [0, 100], [2, -2]);
+  const parallaxY = useTransform(springY, [0, 100], [2, -2]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    // Calculate 0 to 100% based on mouse position within the section
+    const xPct = ((e.clientX - rect.left) / rect.width) * 100;
+    const yPct = ((e.clientY - rect.top) / rect.height) * 100;
+    mouseX.set(xPct);
+    mouseY.set(yPct);
+  };
 
   useEffect(() => {
+    // Change role every 3 seconds
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % ROLES.length);
-    }, 3000); // Change role every 3 seconds
+    }, 3000); 
+
+    // Generate particles on client mount to prevent hydration mismatch
+    setParticles(Array.from({ length: 40 }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 3 + 1, 
+      x: Math.random() * 100, 
+      y: Math.random() * 100, 
+      duration: Math.random() * 20 + 15,
+      delay: Math.random() * 5,
+    })));
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section 
+      id="home" 
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 opacity-30 dark:opacity-20 pointer-events-none">
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-500/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px]" />
+      <div className="absolute inset-0 w-full h-full z-[0] pointer-events-none overflow-hidden">
+        {/* Animated Spotlight Gradient */}
+        <motion.div 
+          className="absolute inset-0 z-0"
+          style={{
+            background: useTransform(
+              [springX, springY],
+              ([x, y]) => `radial-gradient(circle 800px at ${x}% ${y}%, rgba(6,182,212,0.15) 0%, rgba(59,130,246,0.05) 40%, transparent 70%)`
+            )
+          }}
+        />
+        
+        {/* Floating Particles wrapped in Parallax container */}
+        <motion.div 
+          className="absolute inset-0"
+          style={{ x: parallaxX, y: parallaxY }}
+        >
+        {particles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="absolute rounded-full bg-cyan-500 dark:bg-cyan-400 shadow-[0_0_8px_2px_rgba(6,182,212,0.3)] dark:shadow-[0_0_10px_2px_rgba(34,211,238,0.4)]"
+            style={{
+              width: p.size,
+              height: p.size,
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, 20, 0],
+              opacity: [0.1, 0.8, 0.1]
+            }}
+            transition={{
+              duration: p.duration,
+              repeat: Infinity,
+              ease: "linear",
+              delay: p.delay
+            }}
+          />
+        ))}
+      </motion.div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-10 w-full">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-10 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-72 items-center">
 
           {/* LEFT: Text Content */}
@@ -255,7 +331,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-20 pointer-events-none"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
