@@ -7,7 +7,7 @@ import DWLogo from "./DWLogo";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About Me", href: "#about" },
+  { label: "About Me", href: "/about", isExternal: true },
   { label: "My Projects", href: "#projects" },
   { label: "Contact Me", href: "#contact" },
 ];
@@ -53,6 +53,10 @@ export default function Navbar() {
 
   const scrollTo = (href: string) => {
     setIsOpen(false);
+    if (window.location.pathname !== "/" && href.startsWith("#")) {
+      window.location.href = `/${href}`;
+      return;
+    }
     document.getElementById(href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -82,6 +86,25 @@ export default function Navbar() {
             {/* Nav links */}
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "");
+
+              if (link.isExternal) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`relative px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                      isActive
+                        ? "text-primary-500 dark:text-primary-400"
+                        : "text-[var(--text-muted)] hover:text-[var(--text)]"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+
               return (
                 <button
                   key={link.href}
@@ -157,18 +180,40 @@ export default function Navbar() {
             className="md:hidden bg-[var(--bg-card)] border-b border-[var(--border)] overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollTo(link.href)}
-                  className={`text-left text-sm font-medium py-1 transition-colors ${activeSection === link.href.replace("#", "")
-                    ? "text-primary-500 dark:text-primary-400"
-                    : "text-[var(--text-muted)]"
-                    }`}
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.replace("#", "");
+                
+                if (link.isExternal) {
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block text-left text-sm font-medium py-1 transition-colors ${
+                        isActive
+                          ? "text-primary-500 dark:text-primary-400"
+                          : "text-[var(--text-muted)]"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => scrollTo(link.href)}
+                    className={`text-left text-sm font-medium py-1 transition-colors ${isActive
+                      ? "text-primary-500 dark:text-primary-400"
+                      : "text-[var(--text-muted)]"
+                      }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
               <a href="/Digvijay_resume-1.pdf" download target="_blank" rel="noopener noreferrer" className="text-left text-sm font-medium py-1 text-[var(--text-muted)]">
                 Resume
               </a>

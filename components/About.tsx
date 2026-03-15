@@ -46,10 +46,26 @@ const EDUCATION = [
 ];
 
 const ACHIEVEMENTS = [
-  { title: "☁️ AWS Academy Graduate - Generative AI Foundations", desc: "Completed foundational training on Generative AI concepts provided by AWS Academy." },
-  { title: "🤖 Claude Code in Action", desc: "Successfully completed the Claude Code in Action course, focusing on practical AI development." },
-  { title: "🎨 UI/UX for Beginners", desc: "Completed a comprehensive course covering user interface and user experience design principles." },
-  { title: "💻 Web Development + DevOps Cohort", desc: "Participated in an intensive cohort focusing on modern web development along with essential DevOps practices." },
+  { 
+    title: "☁️ AWS Academy Graduate - Generative AI Foundations", 
+    desc: "Completed foundational training on Generative AI concepts provided by AWS Academy.",
+    image: "/certificates/AWS Academy Graduate - Generative AI Foundations.jpg"
+  },
+  { 
+    title: "🤖 Claude Code in Action", 
+    desc: "Successfully completed the Claude Code in Action course, focusing on practical AI development.",
+    image: "/certificates/Claude Code in Action.jpg"
+  },
+  { 
+    title: "🎨 UI/UX for Beginners", 
+    desc: "Completed a comprehensive course covering user interface and user experience design principles.",
+    image: "/certificates/UIUX for Beginners.jpg"
+  },
+  { 
+    title: "💻 Web Development + DevOps Cohort", 
+    desc: "Participated in an intensive cohort focusing on modern web development along with essential DevOps practices.",
+    image: "/certificates/Web Development + DevOps Cohort 100xdevs.jpg"
+  },
 ];
 
 const SKILL_GROUPS = [
@@ -167,7 +183,17 @@ const tabContent: Record<string, React.ReactNode> = {
             <div className="font-bold text-[var(--text)] text-base mb-1.5 flex items-center gap-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
               {ach.title}
             </div>
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed">{ach.desc}</p>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed mb-4">{ach.desc}</p>
+            {ach.image && (
+              <a 
+                href={ach.image} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors uppercase tracking-widest border-b border-transparent hover:border-primary-500"
+              >
+                View Certificate →
+              </a>
+            )}
           </div>
         </motion.div>
       ))}
@@ -303,6 +329,27 @@ export default function About() {
 
           </div>
         </div>
+
+        {/* See More Link */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-12 flex justify-center"
+        >
+          <a
+            href="/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text)] font-semibold hover:border-primary-500 hover:text-primary-500 transition-all shadow-lg hover:shadow-primary-500/20 overflow-hidden"
+          >
+            <span className="relative z-10">See More About Me</span>
+            <span className="relative z-10 group-hover:translate-x-1 transition-transform">→</span>
+            <div className="absolute inset-0 bg-primary-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );
