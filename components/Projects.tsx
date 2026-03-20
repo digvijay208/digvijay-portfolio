@@ -9,9 +9,9 @@ const PROJECTS: Project[] = [
     title: "Ai-prompt-generator",
     description: "A web application that helps users craft perfect prompts for AI tools like ChatGPT, Claude, and other large language models.",
     tags: [
-      { label: "HTML CSS", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300" },
-      { label: "JS", color: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300" },
-      { label: "BACKEND", color: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300" },
+      { label: "React", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300" },
+      { label: "Typescript", color: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300" },
+      { label: "Next.js", color: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300" },
     ],
     github: "https://github.com/digvijay208/ai-prompt-generator",
     demo: "https://ai-prompt-generator-rho.vercel.app",
@@ -25,7 +25,7 @@ const PROJECTS: Project[] = [
     tags: [
       { label: "FULL-STACK", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300" },
       { label: "AI", color: "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300" },
-      { label: "LANGCHAIN", color: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300" },
+      { label: "LangChain", color: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300" },
     ],
     github: "https://github.com/digvijay208/multi_agent_ai",
     gradient: "from-rose-400 via-pink-500 to-purple-600",

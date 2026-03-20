@@ -20,13 +20,14 @@ export default function Navbar() {
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    // Default to dark mode unless explicitly set to light
     if (stored === "light") {
       setIsDark(false);
+      document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
     } else {
       setIsDark(true);
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
     }
 
     const handleScroll = () => {

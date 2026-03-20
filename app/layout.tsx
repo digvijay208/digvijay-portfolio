@@ -39,13 +39,20 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
+                  var themeVer = localStorage.getItem('themeVersion');
                   var theme = localStorage.getItem('theme');
+                  // v2 migration: first time with the new dark-first default, reset to dark
+                  if (themeVer !== '2') {
+                    theme = 'dark';
+                    localStorage.setItem('theme', 'dark');
+                    localStorage.setItem('themeVersion', '2');
+                  }
                   if (theme === 'light') {
                     document.documentElement.classList.add('light');
                     document.documentElement.classList.remove('dark');
                   } else {
-                    // Default: dark mode (CSS :root already dark, just add .dark for Tailwind)
                     document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
                   }
                 } catch(e) {}
               })();
