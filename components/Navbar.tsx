@@ -47,7 +47,15 @@ export default function Navbar() {
   const toggleTheme = () => {
     const next = !isDark;
     setIsDark(next);
-    document.documentElement.classList.toggle("dark", next);
+    if (next) {
+      // switching to dark: remove .light class (.dark is alias, keep for Tailwind utilities)
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+    } else {
+      // switching to light: add .light class
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    }
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 

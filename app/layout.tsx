@@ -40,12 +40,12 @@ export default function RootLayout({
               (function() {
                 try {
                   var theme = localStorage.getItem('theme');
-                  // Default to dark mode unless 'light' is strictly set
                   if (theme === 'light') {
+                    document.documentElement.classList.add('light');
                     document.documentElement.classList.remove('dark');
                   } else {
+                    // Default: dark mode (CSS :root already dark, just add .dark for Tailwind)
                     document.documentElement.classList.add('dark');
-                    if (!theme) localStorage.setItem('theme', 'dark');
                   }
                 } catch(e) {}
               })();

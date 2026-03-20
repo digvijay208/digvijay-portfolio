@@ -7,6 +7,17 @@
 :root {
   --primary: #7C3AED;
   --primary-light: #A78BFA;
+  /* Default to dark theme — JS will add .light class if user prefers light */
+  --bg: #0F0F1A;
+  --bg-card: #1A1A2E;
+  --text: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --border: #2D2D44;
+  --section-dashed: #4C1D95;
+}
+
+/* Applied when user explicitly switches to light mode */
+.light {
   --bg: #F1F2F6;
   --bg-card: #FFFFFF;
   --text: #0F0F1A;
@@ -15,6 +26,7 @@
   --section-dashed: #C4B5FD;
 }
 
+/* Keep .dark as alias so existing dark: Tailwind utilities still work */
 .dark {
   --bg: #0F0F1A;
   --bg-card: #1A1A2E;
