@@ -137,7 +137,7 @@ export default function Navbar() {
 
             {/* Resume — styled slightly different */}
             <a
-              href="/Digvijay_resume-1.pdf"
+              href="/Digvijay_Resume.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
@@ -223,7 +223,7 @@ export default function Navbar() {
                   </button>
                 );
               })}
-              <a href="/Digvijay_resume-1.pdf" download target="_blank" rel="noopener noreferrer" className="text-left text-sm font-medium py-1 text-[var(--text-muted)]">
+              <a href="/Digvijay_Resume.pdf" download target="_blank" rel="noopener noreferrer" className="text-left text-sm font-medium py-1 text-[var(--text-muted)]">
                 Resume
               </a>
             </div>

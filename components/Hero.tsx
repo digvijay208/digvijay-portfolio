@@ -232,7 +232,7 @@ export default function Hero() {
                 Contact Me <FiMail />
               </motion.a>
               <motion.a
-                href="/Digvijay_resume-1.pdf"
+                href="/Digvijay_Resume.pdf"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

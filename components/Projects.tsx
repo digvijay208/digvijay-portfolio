@@ -6,6 +6,20 @@ import CircularProjects, { Project } from "./CircularProjects";
 
 const PROJECTS: Project[] = [
   {
+    title: "SurfaceIQ",
+    description: "An AI agent that turns simple prompts into live browser runs, captures evidence, and delivers reports across public and authenticated routes.",
+    tags: [
+      { label: "AI Agent", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300" },
+      { label: "Automation", color: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300" },
+      { label: "Browser", color: "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300" },
+    ],
+    github: "https://github.com/digvijay208/SurfaceIQ",
+    demo: "https://surfaceiq.vercel.app",
+    gradient: "from-indigo-400 via-purple-500 to-fuchsia-600",
+    emoji: "🌐",
+    image: "/projects/SurfaceIQ.png",
+  },
+  {
     title: "Ai-prompt-generator",
     description: "A web application that helps users craft perfect prompts for AI tools like ChatGPT, Claude, and other large language models.",
     tags: [
@@ -17,7 +31,7 @@ const PROJECTS: Project[] = [
     demo: "https://ai-prompt-generator-rho.vercel.app",
     gradient: "from-blue-400 via-cyan-500 to-teal-600",
     emoji: "📊",
-    image: "/projects/ai_prompt_generator.png",
+    image: "/projects/thumbnail_promptgen.png",
   },
   {
     title: "MultiAgent AI ChatBot",
